@@ -1,5 +1,5 @@
-const repoUser = "<your-username>";
-const repoName = "<your-repo>";
+const repoUser = "soupmaxschool";
+const repoName = "bookshelf";
 
 async function loadBooks() {
     const res = await fetch(`https://api.github.com/repos/${repoUser}/${repoName}/contents/books`);
