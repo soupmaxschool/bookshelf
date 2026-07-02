@@ -1,6 +1,6 @@
 // --- Your GitHub repo info ---
-const repoUser = "<your-username>";
-const repoName = "<your-repo>";
+const repoUser = "soupmaxschool";
+const repoName = "bookshelf";
 
 // --- Load books from /books/ folder ---
 async function loadBooks() {
