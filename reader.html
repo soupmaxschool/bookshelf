@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <title>Reader</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/epub.js"></script>
-    <script src="js/pdf.js"></script>
 </head>
+
 <body>
     <header>
         <a href="index.html">← Back</a>
@@ -15,31 +14,10 @@
 
     <main id="viewer"></main>
 
-    <script>
-        const params = new URLSearchParams(location.search);
-        const file = params.get("file");
-        const title = params.get("title");
-        document.getElementById("title").textContent = title;
+    <!-- EPUB.js -->
+    <script src="js/epub.js"></script>
 
-        if (file.endsWith(".epub")) {
-            const book = ePub(file);
-            book.renderTo("viewer");
-        } else {
-            pdfjsLib.getDocument(file).promise.then(pdf => {
-                const viewer = document.getElementById("viewer");
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    pdf.getPage(i).then(page => {
-                        const canvas = document.createElement("canvas");
-                        viewer.appendChild(canvas);
-                        const ctx = canvas.getContext("2d");
-                        const viewport = page.getViewport({ scale: 1.3 });
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-                        page.render({ canvasContext: ctx, viewport });
-                    });
-                }
-            });
-        }
-    </script>
+    <!-- Your reader logic -->
+    <script src="js/reader.js"></script>
 </body>
 </html>
