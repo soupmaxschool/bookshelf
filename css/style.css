@@ -43,8 +43,12 @@ header input {
 }
 
 #viewer {
+    width: 100%;
+    height: calc(100vh - 80px); /* space for header */
     padding: 20px;
+    overflow: hidden;
 }
+
 
 @media (prefers-color-scheme: dark) {
     body {
